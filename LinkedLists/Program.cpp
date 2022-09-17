@@ -136,55 +136,94 @@ int main(){
     
     head = NULL; //list is empty
     
-    //TEST FUNCTION> INSERT(int x, int position) 
-    /*
-    Insert(2,1); //List> 2
-    Insert(3,2); //List> 2 3
-    Insert(4,1); //List> 4 2 3
-    Insert(5,2); //List> 4 5 2 3
-    Print();
-    */
+    int select;
 
-    //TEST FUNCTION> INSERT(int x) 
-    /*
-    //only insert at first position
-    int num, temp;
-    cout << "How many numbers? ";
-    cin >> num;
-    for(int i = 0; i < num; i++){
-        cout << "Type num> ";
-        cin >> temp;
-        Insert(temp);
-        Print();
-    }*/
+    cout<<"Test different Linked-List functions!" << endl;
+    cout<<"Select a valid number: " << endl;
+    cout << "1. Insert(int value)"<<endl;
+    cout << "     -Inserts value at the beginning of the list"<<endl;
+    cout << "2. Insert(int value, int n)"<<endl;
+    cout << "     -Inserts value at the nth position of the list"<<endl;
+    cout << "3. InsertLast(int x)"<<endl;
+    cout << "     -Inserts value at the last position of the list"<<endl;
+    cout << "   Delete(int n)"<<endl;
+    cout << "     -Deletes value at the nth position of the list"<<endl;
+    cout << "   Reverse()"<<endl;
+    cout << "     -Reverse list (iterative)"<<endl;
+    cout << "4. PrintRecursive(ptr to head)"<<endl;
+    cout << "     -Prints list recursively"<<endl;
+    cout << "   PrintReverseRecursive(ptr to head)"<<endl;
+    cout << "     -Prints reversed list recursively"<<endl;
 
-     //TEST FUNCTION> INSERTLAST(int x), DELETE(int n) and REVERSE()
-    /*
-    int n;
-    InsertLast(2);
-    InsertLast(4);
-    InsertLast(5);
-    InsertLast(6); //List> 2, 4, 5, 6
-    Print();
-    cout << "Enter a position> ";
-    cin >> n;
-    Delete(n);
-    Print();
+    cout<<endl;
+    cout << "Type a number (1-4)> ";
+    cin >> select;
+    cout << endl;
+        
 
-    cout<<"Reverse ";
-    Reverse();
-    Print();
-    */
+    switch(select){
 
-    InsertLast(2);
-    InsertLast(4);
-    InsertLast(6);
-    InsertLast(5);
-    PrintRecursive(head);
-    PrintReverseRecursive(head);
+        case 1:
+            //TEST FUNCTION> INSERT(int x) 
+            //only insert at first position
 
-    //Print iterative is more efficient, only uses a tempory variable, but in recursive we use space in stack memory
+            int num, temp;
+            cout << "How many numbers? ";
+            cin >> num;
+            for(int i = 0; i < num; i++){
+                cout << "Type num> ";
+                cin >> temp;
+                Insert(temp);
+                Print();
+            }
+        break;
 
+        case 2:
+            //TEST FUNCTION> INSERT(int x, int position) 
+        
+            Insert(2,1); //List> 2
+            Insert(3,2); //List> 2 3
+            Insert(4,1); //List> 4 2 3
+            Insert(5,2); //List> 4 5 2 3
+            Print();
+        break;
 
-    return 0;
+        case 3:
+            //TEST FUNCTION> INSERTLAST(int x), DELETE(int n) and REVERSE()
+            
+            int n;
+            InsertLast(2);
+            InsertLast(4);
+            InsertLast(5);
+            InsertLast(6); //List> 2, 4, 5, 6
+            Print();
+            cout << "Enter a position> ";
+            cin >> n;
+            Delete(n);
+            Print();
+
+            cout<<"Reverse ";
+            Reverse();
+            Print();
+            
+        break;
+
+        case 4:
+            //Print Recursively normal and reverse
+
+            InsertLast(2);
+            InsertLast(4);
+            InsertLast(6);
+            InsertLast(5);
+            cout << "Recursive > ";
+            PrintRecursive(head);
+            cout << "Recursive (Reverse)> ";
+            PrintReverseRecursive(head);
+
+        //Print iterative is more efficient, only uses a tempory variable, but in recursive we use space in stack memory
+        break;
+
+    }
+
+        return 0;
 }
